@@ -6,6 +6,8 @@ import { SDR } from './pages/SDR';
 import { SDRConfiguration } from './pages/SDRConfiguration';
 import * as React from 'react';
 import { Sonde } from "./pages/Sonde";
+import { Processes } from "./pages/Processes";
+import { Map } from "./pages/Map";
 
 function App() {
   const router = createBrowserRouter([
@@ -20,6 +22,14 @@ function App() {
         {
           path: '/sdr',
           element: <SDR />,
+        },
+        {
+          path: '/processes',
+          element: <Processes />,
+        },
+        {
+          path: '/map',
+          element: <Map />,
         },
         {
           path: '/sdr-configuration',

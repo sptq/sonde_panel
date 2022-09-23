@@ -7,6 +7,6 @@ export class ProcController {
 
   @Get('/')
   getProc() {
-    this.procService.getProc();
+    return this.procService.getProc();
   }
 }

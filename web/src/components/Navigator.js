@@ -10,6 +10,8 @@ import ListItemText from '@mui/material/ListItemText';
 import DnsRoundedIcon from '@mui/icons-material/DnsRounded';
 import PermMediaOutlinedIcon from '@mui/icons-material/PhotoSizeSelectActual';
 import SettingsIcon from '@mui/icons-material/Settings';
+import RunningWithErrorsIcon from '@mui/icons-material/RunningWithErrors';
+import MapIcon from '@mui/icons-material/Map';
 import { Link as RouterLink } from "react-router-dom";
 
 const categories = [
@@ -17,7 +19,9 @@ const categories = [
     id: 'Lokalna stacja',
     children: [
       { id: 'Sondy', icon: <DnsRoundedIcon />, link: '/' },
+      { id: 'Mapa', icon: <MapIcon />, link: '/map' },
       { id: 'SDR', icon: <PermMediaOutlinedIcon />, link: '/sdr' },
+      { id: 'Procesy', icon: <RunningWithErrorsIcon />, link: '/processes' },
       { id: 'Konfiguracja SDR', icon: <SettingsIcon />, link: '/sdr-configuration' },
       { id: 'Konfiguracja Aplikacji', icon: <SettingsIcon />, link: '/app-configuration' },
     ],
