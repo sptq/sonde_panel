@@ -7,13 +7,14 @@ import { AppService } from './app.service';
 import { SondeModule } from './sonde/sonde.module';
 import { SdrModule } from './sdr/sdr.module';
 import { CfgModule } from './cfg/cfg.module';
+import { ProcModule } from './proc/proc.module';
 
 @Module({
   imports: [
     ServeStaticModule.forRoot({
       rootPath: join(__dirname, '../web', 'build'),
     }),
-    SondeModule, SdrModule, CfgModule],
+    SondeModule, SdrModule, CfgModule, ProcModule],
   controllers: [AppController],
   providers: [AppService],
 })
