@@ -36,7 +36,7 @@ export const Links = (props) => {
       >
         <MenuItem>
           <a
-            href={`geo:0,0?q=${longitude},${latitude}(${name})`}
+            href={`geo:0,0?q=${latitude},${longitude}(${name})`}
             style={{ textDecoration: 'none' }}
             target={'_blank'}
           >
