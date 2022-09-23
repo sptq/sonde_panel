@@ -12,13 +12,23 @@ export const SDR = () => {
       <h1>SDR Status</h1>
       <Grid container spacing={4}>
         <Grid item xs={12} md={12} lg={6}>
-          <Paper sx={{ width: '100%', margin: 'auto', overflow: 'hidden' }}>
+          <Paper sx={{ width: '98%', margin: 'auto', overflow: 'hidden' }}>
             <SDRChart sdr="1" />
           </Paper>
         </Grid>
         <Grid item xs={12} md={12} lg={6}>
-          <Paper sx={{ width: '100%', margin: 'auto', overflow: 'hidden' }}>
+          <Paper sx={{ width: '98%', margin: 'auto', overflow: 'hidden' }}>
             <SDRChart sdr="2" />
+          </Paper>
+        </Grid>
+        <Grid item xs={12} md={12} lg={6}>
+          <Paper sx={{ width: '98%', margin: 'auto', overflow: 'hidden' }}>
+            <SDRChart sdr="3" />
+          </Paper>
+        </Grid>
+        <Grid item xs={12} md={12} lg={6}>
+          <Paper sx={{ width: '98%', margin: 'auto', overflow: 'hidden' }}>
+            <SDRChart sdr="4" />
           </Paper>
         </Grid>
       </Grid>

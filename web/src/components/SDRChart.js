@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { SDRGraph } from "./SDRGraph";
-import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from "@mui/material";
+import { Hidden, Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from "@mui/material";
 import Paper from "@mui/material/Paper";
 
 export const SDRChart = (props) => {
@@ -26,6 +26,11 @@ export const SDRChart = (props) => {
     }
   }, []);
 
+  const freqCount = (freq) => {
+    const d = freq.split('');
+    return `${d[0]}${d[1]}${d[2]}.${d[3]}${d[4]}${d[5]} MHz`;
+  }
+
   const status = data.sdrStatus.map((item) => {
     return (
       <TableRow
@@ -35,7 +40,7 @@ export const SDRChart = (props) => {
         <TableCell component="th" scope="row">
           {item.id}
         </TableCell>
-        <TableCell>{item.freq}</TableCell>
+        <TableCell>{freqCount(item.freq)}</TableCell>
         <TableCell>{item.deviation}</TableCell>
         <TableCell>{item.noise}</TableCell>
         <TableCell><SDRGraph graph={item.graph}/></TableCell>
@@ -43,11 +48,17 @@ export const SDRChart = (props) => {
     )
   });
 
+  const mobileStatus = data.sdrStatus.map((item) => {
+    return (<div key={item.id} style={{display: 'flex', justifyContent: 'space-between'}}><div>{item.id} &nbsp;&nbsp; {freqCount(item.freq)} &nbsp;&nbsp; {item.deviation} &nbsp;&nbsp; {item.noise}</div> <SDRGraph graph={item.graph} size={10}/></div>)
+  });
+
+
   const { gain, freq, ppm } = data.sdrConfig;
   return data ? (
     <div>
+      <Hidden smDown>
       <h2>SDR #{sdr}</h2>
-      <div style={{height: 60}}><b>Freq:</b> {freq} <b>PPM:</b> {ppm} <b>Gain</b>{gain}</div>
+      <div style={{height: 60}}><b>Freq:</b> {freq ? freqCount(freq) : ''} <b>PPM:</b> {ppm} <b>Gain</b>{gain}</div>
       <TableContainer component={Paper}>
         <Table sx={{ minWidth: 650 }} aria-label="simple table" size={'small'}>
           <TableHead>
@@ -64,7 +75,13 @@ export const SDRChart = (props) => {
           </TableBody>
         </Table>
       </TableContainer>
-
+      </Hidden>
+      <Hidden mdUp>
+          <h2>SDR #{sdr}</h2>
+          <div style={{margin: 10}}>
+            {mobileStatus}
+          </div>
+      </Hidden>
     </div>
   ): null;
 }
