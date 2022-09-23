@@ -43,8 +43,8 @@ export const SondesTableRow = (props) => {
       <TableRow>
         <TableCell style={{ paddingBottom: 0, paddingTop: 0 }} colSpan={12}>
           <Collapse in={open} timeout="auto" unmountOnExit>
-            <Box>
-              <SondeMap {...row} />
+            <Box style={{height: 350}}>
+              <SondeMap {...row} height={300}/>
             </Box>
           </Collapse>
         </TableCell>

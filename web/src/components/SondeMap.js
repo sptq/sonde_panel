@@ -27,7 +27,7 @@ export const SondeMap = (props) => {
   return (
     <div style={{ height, width }}>
         <MapControls callback={setUrl} />
-        <Map url={url} {...props} zoom={zoom} key={url}/>
+        <Map url={url} {...props} zoom={zoom} key={url} style={{ height, width }}/>
     </div>
   );
 };
