@@ -7,7 +7,7 @@ import 'leaflet-defaulticon-compatibility';
 
 
 export const Map = (props) => {
-  const { latitude, longitude, altitude, speed, name, url, zoom } = props;
+  const { latitude, longitude, altitude, speed, name, url, zoom,distance, climb, dir, freq  } = props;
   const position = [parseFloat(latitude), parseFloat(longitude)];
 
   return (
@@ -19,7 +19,6 @@ export const Map = (props) => {
       style={{ height: '100%', width: '100%' }}
     >
       <TileLayer
-        attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         url={url}
       />
 
@@ -27,7 +26,11 @@ export const Map = (props) => {
 
       <Marker position={position}>
         <Popup>
-          {name} {latitude} {longitude} {altitude} {speed}
+          <b>{name}</b><br/>
+          Lat: {latitude} &nbsp; &nbsp; Lon: {longitude} <br/>
+          Alt: {altitude}m &nbsp;&nbsp; Vel: {speed}m/s <br/>
+          Dist: {distance}km &nbsp;&nbsp; Dir: {dir}° <br/>
+          Climb: {climb}m/s &nbsp;&nbsp; Freq: {freq}MHz <br/>
         </Popup>
       </Marker>
       <Polyline pathOptions={{ color: 'red' }} positions={[position]} />

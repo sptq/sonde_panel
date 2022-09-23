@@ -11,6 +11,7 @@ export const SondeMap = (props) => {
   const [url, setUrl] = React.useState(openStreetMap);
   let zoom = 13;
   let height = props.height ? props.height : 400;
+  let width = props.width ? props.width : '100%';
   if (props.altitude < 1000) {
     zoom = 15;
   } else if (props.altitude < 2000) {
@@ -24,13 +25,9 @@ export const SondeMap = (props) => {
   }
 
   return (
-    <div>
-      <div>
+    <div style={{ height, width }}>
         <MapControls callback={setUrl} />
-      </div>
-      <div style={{ height, width: '100%' }}>
         <Map url={url} {...props} zoom={zoom} key={url}/>
-      </div>
     </div>
   );
 };

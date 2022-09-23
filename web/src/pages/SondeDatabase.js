@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { SondesTableTopBar } from '../components/SondesTableTopBar';
 import { SondesTable } from '../components/SondesTable';
 import Paper from '@mui/material/Paper';
+import { Hidden } from "@mui/material";
+import { SondesCards } from "../components/SondesCards";
 
 export const SondeDatabase = () => {
   const [data, setData] = useState([]);
@@ -25,14 +27,15 @@ export const SondeDatabase = () => {
   return (
     <div>
       <h1>Sonde table</h1>
-      <Paper sx={{ maxWidth: 1200, margin: 'auto', overflow: 'hidden' }}>
-        <SondesTableTopBar />
-        <SondesTable rows={data} />
-
-        {/*<Typography sx={{ my: 5, mx: 2 }} color="text.secondary" align="center">*/}
-        {/*  No users for this project yet*/}
-        {/*</Typography>*/}
-      </Paper>
+      <Hidden smDown>
+        <Paper sx={{ maxWidth: 1200, margin: 'auto', overflow: 'hidden' }}>
+          <SondesTableTopBar />
+          <SondesTable rows={data} />
+        </Paper>
+      </Hidden>
+      <Hidden smUp>
+        <SondesCards rows={data} />
+      </Hidden>
     </div>
   );
 };

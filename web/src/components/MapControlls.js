@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button } from "@mui/material";
+import { Button, Hidden, Menu, MenuItem } from "@mui/material";
 
 export const openStreetMap = 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
 export const openTopoMap = 'https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png';
@@ -12,8 +12,18 @@ export const lima = 'https://cdn.lima-labs.com/{z}/{x}/{y}.png?api=demo'
 export const MapControls = (props) => {
   const {callback} = props;
 
+  const [anchorEl, setAnchorEl] = React.useState(null);
+  const open = Boolean(anchorEl);
+  const handleClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
+
   return (
     <div>
+      <Hidden smDown>
       <Button onClick={() => callback(openStreetMap)}>OpenStreetMap</Button>
       <Button onClick={() => callback(openTopoMap)}>OpenTopoMap</Button>
       <Button onClick={() => callback(arcgisOnline)}>ArcGIS Online</Button>
@@ -21,6 +31,36 @@ export const MapControls = (props) => {
       <Button onClick={() => callback(landscape)}>Landscape</Button>
       <Button onClick={() => callback(outdoors)}>Outdoors</Button>
       <Button onClick={() => callback(lima)}>Lima</Button>
+      </Hidden>
+      <Hidden msUp>
+        <Button
+          id="basic-button"
+          aria-controls={open ? 'basic-menu' : undefined}
+          aria-haspopup="true"
+          aria-expanded={open ? 'true' : undefined}
+          onClick={handleClick}
+
+        >
+          Raster
+        </Button>
+        <Menu
+          id="basic-menu"
+          anchorEl={anchorEl}
+          open={open}
+          onClose={handleClose}
+          MenuListProps={{
+            'aria-labelledby': 'basic-button',
+          }}
+        >
+          <MenuItem onClick={() => callback(openStreetMap)}>OpenStreetMap</MenuItem>
+          <MenuItem onClick={() => callback(openTopoMap)}>OpenTopoMap</MenuItem>
+          <MenuItem onClick={() => callback(arcgisOnline)}>ArcGIS Online</MenuItem>
+          <MenuItem onClick={() => callback(cyclosm)}>Cyclosm</MenuItem>
+          <MenuItem onClick={() => callback(landscape)}>Landscape</MenuItem>
+          <MenuItem onClick={() => callback(outdoors)}>Outdoors</MenuItem>
+          <MenuItem onClick={() => callback(lima)}>Lima</MenuItem>
+        </Menu>
+      </Hidden>
     </div>
   )
 }
