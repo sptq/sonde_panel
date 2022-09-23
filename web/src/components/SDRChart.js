@@ -27,8 +27,10 @@ export const SDRChart = (props) => {
   }, []);
 
   const freqCount = (freq) => {
-    const d = freq.split('');
-    return `${d[0]}${d[1]}${d[2]}.${d[3]}${d[4]}${d[5]} MHz`;
+    if(freq) {
+      const d = freq.split('');
+      return `${d[0]}${d[1]}${d[2]}.${d[3]}${d[4]}${d[5]} MHz`;
+    }
   }
 
   const status = data.sdrStatus.map((item) => {
