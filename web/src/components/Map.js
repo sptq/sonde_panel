@@ -1,9 +1,10 @@
 import React from 'react';
-import { MapContainer, Marker, Popup, TileLayer } from 'react-leaflet';
+import { MapContainer, Marker, Popup, TileLayer, ScaleControl, Polyline} from 'react-leaflet';
 
 import 'leaflet/dist/leaflet.css';
 import 'leaflet-defaulticon-compatibility/dist/leaflet-defaulticon-compatibility.css';
 import 'leaflet-defaulticon-compatibility';
+
 
 export const Map = (props) => {
   const { latitude, longitude, altitude, speed, name, url, zoom } = props;
@@ -22,11 +23,14 @@ export const Map = (props) => {
         url={url}
       />
 
+      <ScaleControl />
+
       <Marker position={position}>
         <Popup>
           {name} {latitude} {longitude} {altitude} {speed}
         </Popup>
       </Marker>
+      <Polyline pathOptions={{ color: 'red' }} positions={[position]} />
     </MapContainer>
   );
 };

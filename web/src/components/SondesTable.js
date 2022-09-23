@@ -20,6 +20,8 @@ export const SondesTable = (props) => {
             <TableCell>Altitude</TableCell>
             <TableCell>Freq</TableCell>
             <TableCell>Distance</TableCell>
+            <TableCell>Time</TableCell>
+            <TableCell>Links</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>

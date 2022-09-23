@@ -42,9 +42,18 @@ export class SondeService {
    try {
      const data = await fs.readFile(config.DB_FILE_PATH, { encoding: 'utf8' });
      console.log(data);
-     return this.mapDataToJson(data);
+     return this.mapDataToJson(data).reverse();
    } catch (error) {
     console.log(error);
    }
+  }
+
+  async getDatabaseByName(name: string) {
+    try {
+      const data = await this.getDatabaseFromFile();
+      return data.find((row: any) => row.name === name);
+    } catch (error) {
+      console.log(error);
+    }
   }
 }

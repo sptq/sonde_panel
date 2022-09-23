@@ -5,6 +5,8 @@ import { SondeDatabase } from './pages/SondeDatabase';
 import { SDR } from './pages/SDR';
 import { SDRConfiguration } from './pages/SDRConfiguration';
 import * as React from 'react';
+import { Sonde } from "./pages/Sonde";
+
 function App() {
   const router = createBrowserRouter([
     {
@@ -12,7 +14,7 @@ function App() {
       element: <Paperbase />,
       children: [
         {
-          path: '/sonde-database',
+          path: '/',
           element: <SondeDatabase />,
         },
         {
@@ -23,6 +25,10 @@ function App() {
           path: '/sdr-configuration',
           element: <SDRConfiguration />,
         },
+        {
+          path: '/sonde/:name',
+          element: <Sonde />,
+        }
       ],
     },
   ]);

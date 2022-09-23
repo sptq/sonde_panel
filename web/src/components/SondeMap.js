@@ -10,17 +10,17 @@ import { Map } from "./Map";
 export const SondeMap = (props) => {
   const [url, setUrl] = React.useState(openStreetMap);
   let zoom = 13;
-
+  let height = props.height ? props.height : 400;
   if (props.altitude < 1000) {
-    zoom = 16;
+    zoom = 15;
   } else if (props.altitude < 2000) {
-    zoom = 12;
+    zoom = 14;
   } else if (props.altitude < 5000) {
-    zoom = 10;
+    zoom = 13;
   } else if (props.altitude < 10000) {
-    zoom = 8;
+    zoom = 12;
   } else if (props.altitude < 20000) {
-    zoom = 6;
+    zoom = 11;
   }
 
   return (
@@ -28,7 +28,7 @@ export const SondeMap = (props) => {
       <div>
         <MapControls callback={setUrl} />
       </div>
-      <div style={{ height: 300, width: '100%' }}>
+      <div style={{ height, width: '100%' }}>
         <Map url={url} {...props} zoom={zoom} key={url}/>
       </div>
     </div>

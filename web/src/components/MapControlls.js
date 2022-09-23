@@ -20,7 +20,7 @@ export const MapControls = (props) => {
       <Button onClick={() => callback(cyclosm)}>Cyclosm</Button>
       <Button onClick={() => callback(landscape)}>Landscape</Button>
       <Button onClick={() => callback(outdoors)}>Outdoors</Button>
-      <Button onClick={() => callback(lima)}>lima</Button>
+      <Button onClick={() => callback(lima)}>Lima</Button>
     </div>
   )
 }

@@ -7,33 +7,26 @@ import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
-import HomeIcon from '@mui/icons-material/Home';
-import PeopleIcon from '@mui/icons-material/People';
 import DnsRoundedIcon from '@mui/icons-material/DnsRounded';
 import PermMediaOutlinedIcon from '@mui/icons-material/PhotoSizeSelectActual';
-import PublicIcon from '@mui/icons-material/Public';
-import SettingsEthernetIcon from '@mui/icons-material/SettingsEthernet';
-import SettingsInputComponentIcon from '@mui/icons-material/SettingsInputComponent';
-import TimerIcon from '@mui/icons-material/Timer';
 import SettingsIcon from '@mui/icons-material/Settings';
-import PhonelinkSetupIcon from '@mui/icons-material/PhonelinkSetup';
 import { Link as RouterLink } from "react-router-dom";
 
 const categories = [
   {
     id: 'Lokalna stacja',
     children: [
-      { id: 'Sondy', icon: <DnsRoundedIcon />, link: 'sonde-database' },
-      { id: 'SDR', icon: <PermMediaOutlinedIcon />, link: 'sdr' },
-      { id: 'Konfiguracja SDR', icon: <SettingsIcon />, link: 'sdr-configuration' },
-      { id: 'Konfiguracja Aplikacji', icon: <SettingsIcon />, link: 'app-configuration' },
+      { id: 'Sondy', icon: <DnsRoundedIcon />, link: '/' },
+      { id: 'SDR', icon: <PermMediaOutlinedIcon />, link: '/sdr' },
+      { id: 'Konfiguracja SDR', icon: <SettingsIcon />, link: '/sdr-configuration' },
+      { id: 'Konfiguracja Aplikacji', icon: <SettingsIcon />, link: '/app-configuration' },
     ],
   },
   {
     id: 'Zdalna baza',
     children: [
-      { id: 'Ustawienia Połaczenia', icon: <SettingsIcon />, link: 'remote-connection' },
-      { id: 'Baza Sond', icon: <DnsRoundedIcon />, link: 'remote-sonde-database' },
+      { id: 'Ustawienia Połaczenia', icon: <SettingsIcon />, link: '/remote-connection' },
+      { id: 'Baza Sond', icon: <DnsRoundedIcon />, link: '/remote-sonde-database' },
     ],
   },
 ];

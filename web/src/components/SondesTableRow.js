@@ -6,6 +6,9 @@ import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import { SondeMap } from "./SondeMap";
+import dayjs from "dayjs";
+import { Links } from "./Links";
+import { Link as RouterLink } from "react-router-dom";
 
 export const SondesTableRow = (props) => {
   const { row } = props;
@@ -24,7 +27,7 @@ export const SondesTableRow = (props) => {
           </IconButton>
         </TableCell>
         <TableCell component="th" scope="row">
-          {row.name}
+          <RouterLink to={`/sonde/${row.name}`}>{row.name}</RouterLink>
         </TableCell>
         <TableCell>{row.latitude}</TableCell>
         <TableCell>{row.longitude}</TableCell>
@@ -34,9 +37,11 @@ export const SondesTableRow = (props) => {
         <TableCell>{row.altitude}</TableCell>
         <TableCell>{row.freq}</TableCell>
         <TableCell>{row.distance}</TableCell>
+        <TableCell>{dayjs.unix(row.time).format('DD-MM-YYYY HH:mm')}</TableCell>
+        <TableCell><Links {...row}/></TableCell>
       </TableRow>
       <TableRow>
-        <TableCell style={{ paddingBottom: 0, paddingTop: 0 }} colSpan={10}>
+        <TableCell style={{ paddingBottom: 0, paddingTop: 0 }} colSpan={12}>
           <Collapse in={open} timeout="auto" unmountOnExit>
             <Box>
               <SondeMap {...row} />
