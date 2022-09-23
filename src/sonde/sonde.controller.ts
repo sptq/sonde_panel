@@ -7,7 +7,6 @@ export class SondeController {
 
   @Get('/')
   async getDatabase() {
-    const data = await this.sondeService.getDatabaseFromFile();
-    return data;
+    return await this.sondeService.getDatabaseFromFile();
   }
 }

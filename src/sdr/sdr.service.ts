@@ -6,7 +6,7 @@ import config from "../app.configuration";
 export class SdrService {
 
   componentToHex(c) {
-    var hex = c.toString(16);
+    let hex = c.toString(16);
     return hex.length == 1 ? "0" + hex : hex;
   }
 
@@ -47,7 +47,8 @@ export class SdrService {
     if (code >= 0xDC00 && code <= 0xDFFF) {
       return code
     }
-    return code
+
+    return code < 255 ? code : 255;
   }
 
   buildConfigData(configData: Array<string>) {
@@ -97,7 +98,7 @@ export class SdrService {
   }
 
 
-  async getSDRSatus(sdrNumber: number) {
+  async getSDRStatus(sdrNumber: number) {
     try {
       const sdrData = await fs.readFile(config.SDR_FILE_PATH + '/sdr' + sdrNumber +'.bin', { encoding: 'utf8' });
       return this.mapDataToJson(sdrData);

@@ -7,7 +7,6 @@ export class SdrController {
 
   @Get('/:sdrNumber')
   async getSDRStatus(@Param('sdrNumber') sdrNumber: number) {
-    const data = await this.sdrService.getSDRSatus(sdrNumber);
-    return data;
+    return await this.sdrService.getSDRStatus(sdrNumber);
   }
 }
