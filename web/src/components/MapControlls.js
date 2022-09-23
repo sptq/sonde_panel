@@ -32,7 +32,7 @@ export const MapControls = (props) => {
       <Button onClick={() => callback(outdoors)}>Outdoors</Button>
       <Button onClick={() => callback(lima)}>Lima</Button>
       </Hidden>
-      <Hidden msUp>
+      <Hidden smUp>
         <Button
           id="basic-button"
           aria-controls={open ? 'basic-menu' : undefined}
