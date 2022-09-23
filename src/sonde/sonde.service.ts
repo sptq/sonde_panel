@@ -41,7 +41,6 @@ export class SondeService {
   async getDatabaseFromFile() {
    try {
      const data = await fs.readFile(config.DB_FILE_PATH, { encoding: 'utf8' });
-     console.log(data);
      return this.mapDataToJson(data).reverse();
    } catch (error) {
     console.log(error);

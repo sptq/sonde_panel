@@ -8,8 +8,8 @@ import MenuIcon from '@mui/icons-material/Menu';
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import Toolbar from '@mui/material/Toolbar';
 import Tooltip from '@mui/material/Tooltip';
-import { useNavigate } from "react-router-dom";
-import { Button } from "@mui/material";
+import { useNavigate } from 'react-router-dom';
+import { Button, Hidden } from '@mui/material';
 
 const lightColor = 'rgba(255, 255, 255, 0.7)';
 
@@ -32,11 +32,14 @@ function Header(props) {
                 <MenuIcon />
               </IconButton>
             </Grid>
-            <Grid item>
-              <Button color="inherit" onClick={() => navigate('/')}>Lista sond</Button>
-            </Grid>
+            <Hidden smUp>
+              <Grid item>
+                <Button color="inherit" onClick={() => navigate('/')}>
+                  Lista sond
+                </Button>
+              </Grid>
+            </Hidden>
             <Grid item xs />
-
 
             <Grid item>
               <Tooltip title="Alerts • No alerts">

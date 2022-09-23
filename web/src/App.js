@@ -8,6 +8,9 @@ import * as React from 'react';
 import { Sonde } from "./pages/Sonde";
 import { Processes } from "./pages/Processes";
 import { Map } from "./pages/Map";
+import { AppConfig } from "./pages/AppConfig";
+import { RemoteConnection } from "./pages/RemoteConnection";
+import { RemoteDatabase } from "./pages/RemoteDatabase";
 
 function App() {
   const router = createBrowserRouter([
@@ -34,6 +37,18 @@ function App() {
         {
           path: '/sdr-configuration',
           element: <SDRConfiguration />,
+        },
+        {
+          path: '/app-configuration',
+          element: <AppConfig />,
+        },
+        {
+          path: '/remote-connection',
+          element: <RemoteConnection />,
+        },
+        {
+          path: '/remote-database',
+          element: <RemoteDatabase />,
         },
         {
           path: '/sonde/:name',

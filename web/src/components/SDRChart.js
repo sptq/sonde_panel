@@ -56,32 +56,33 @@ export const SDRChart = (props) => {
   const { gain, freq, ppm } = data.sdrConfig;
   return data ? (
     <div>
-      <Hidden smDown>
-      <h2>SDR #{sdr}</h2>
-      <div style={{height: 60}}><b>Freq:</b> {freq ? freqCount(freq) : ''} <b>PPM:</b> {ppm} <b>Gain</b>{gain}</div>
-      <TableContainer component={Paper}>
-        <Table sx={{ minWidth: 650 }} aria-label="simple table" size={'small'}>
-          <TableHead>
-            <TableRow>
-              <TableCell>Id</TableCell>
-              <TableCell>Freq</TableCell>
-              <TableCell>Deviation</TableCell>
-              <TableCell>Noise</TableCell>
-              <TableCell>Char</TableCell>
-            </TableRow>
-          </TableHead>
-          <TableBody>
-            {status}
-          </TableBody>
-        </Table>
-      </TableContainer>
-      </Hidden>
-      <Hidden mdUp>
+      {/*<Hidden smDown>*/}
+      {/*<h2>SDR #{sdr}</h2>*/}
+      {/*<div style={{height: 60}}><b>Freq:</b> {freq ? freqCount(freq) : ''} <b>PPM:</b> {ppm} <b>Gain</b>{gain}</div>*/}
+      {/*<TableContainer component={Paper}>*/}
+      {/*  <Table sx={{ minWidth: 650 }} aria-label="simple table" size={'small'}>*/}
+      {/*    <TableHead>*/}
+      {/*      <TableRow>*/}
+      {/*        <TableCell>Id</TableCell>*/}
+      {/*        <TableCell>Freq</TableCell>*/}
+      {/*        <TableCell>Deviation</TableCell>*/}
+      {/*        <TableCell>Noise</TableCell>*/}
+      {/*        <TableCell>Char</TableCell>*/}
+      {/*      </TableRow>*/}
+      {/*    </TableHead>*/}
+      {/*    <TableBody>*/}
+      {/*      {status}*/}
+      {/*    </TableBody>*/}
+      {/*  </Table>*/}
+      {/*</TableContainer>*/}
+      {/*</Hidden>*/}
+      {/*<Hidden mdUp>*/}
           <h2>SDR #{sdr}</h2>
+          <div style={{height: 60}}><b>Freq:</b> {freq ? freqCount(freq) : ''} <b>PPM:</b> {ppm} <b>Gain</b>{gain}</div>
           <div style={{margin: 10}}>
             {mobileStatus}
           </div>
-      </Hidden>
+      {/*</Hidden>*/}
     </div>
   ): null;
 }

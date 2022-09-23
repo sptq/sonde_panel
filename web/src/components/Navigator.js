@@ -30,7 +30,7 @@ const categories = [
     id: 'Zdalna baza',
     children: [
       { id: 'Ustawienia Połaczenia', icon: <SettingsIcon />, link: '/remote-connection' },
-      { id: 'Baza Sond', icon: <DnsRoundedIcon />, link: '/remote-sonde-database' },
+      { id: 'Baza Sond', icon: <DnsRoundedIcon />, link: '/remote-database' },
     ],
   },
 ];
