@@ -49,7 +49,7 @@ export const SDRChart = (props) => {
   });
 
   const mobileStatus = data.sdrStatus.map((item) => {
-    return (<div key={item.id} style={{display: 'flex', justifyContent: 'space-between'}}><div>{item.id} &nbsp;&nbsp; {freqCount(item.freq)} &nbsp;&nbsp; {item.deviation} &nbsp;&nbsp; {item.noise}</div> <SDRGraph graph={item.graph} size={10}/></div>)
+    return (<div key={item.id} style={{display: 'flex', justifyContent: 'space-between'}}><div>{item.id} &nbsp; {freqCount(item.freq)} &nbsp; {item.deviation} &nbsp; {item.noise}</div> <SDRGraph graph={item.graph} size={10}/></div>)
   });
 
 
