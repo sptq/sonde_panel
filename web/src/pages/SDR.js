@@ -9,7 +9,7 @@ import Grid from '@mui/material/Grid';
 export const SDR = () => {
   return (
     <div>
-      <h1>SDR Status</h1>
+      <h1>Status SDR</h1>
       <Grid container spacing={4}>
         <Grid item xs={12} md={12} lg={6}>
           <Paper sx={{ width: '98%', margin: 'auto', overflow: 'hidden' }}>

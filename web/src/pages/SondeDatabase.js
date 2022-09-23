@@ -26,7 +26,7 @@ export const SondeDatabase = () => {
 
   return (
     <div>
-      <h1>Sonde table</h1>
+      <h1>Lista sond</h1>
       <Hidden smDown>
         <Paper sx={{ maxWidth: 1200, margin: 'auto', overflow: 'hidden' }}>
           <SondesTableTopBar />

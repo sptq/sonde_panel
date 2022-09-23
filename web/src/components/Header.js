@@ -33,7 +33,7 @@ function Header(props) {
               </IconButton>
             </Grid>
             <Grid item>
-              <Button color="inherit" onClick={() => navigate('/')}>Home</Button>
+              <Button color="inherit" onClick={() => navigate('/')}>Lista sond</Button>
             </Grid>
             <Grid item xs />
 

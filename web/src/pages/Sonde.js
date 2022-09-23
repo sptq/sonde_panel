@@ -34,7 +34,7 @@ export const Sonde = (props) => {
           <Grid item xs={12}>
             <Paper style={{ display: 'flex' }}>
               <Button component={Link} to={'/'} variant={'text'}>
-                {'<'} Go Back
+                {'<'} Wstecz
               </Button>
               <Links {...data}></Links>
             </Paper>

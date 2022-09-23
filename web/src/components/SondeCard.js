@@ -30,8 +30,8 @@ export const SondeCard = (props) => {
         </Typography>
       </CardContent>
       <CardActions style={{display: "flex", justifyContent: "space-between"}}>
-        <Button onClick={handleExpandClick} aria-expanded={expanded} aria-label="show more">Show minimap</Button>
-        <Button component={Link} to={`sonde/${name}`}>Open Sonde</Button>
+        <Button onClick={handleExpandClick} aria-expanded={expanded} aria-label="show more">Mini mapa</Button>
+        <Button component={Link} to={`sonde/${name}`}>Przejdź do sondy</Button>
         <Links {...props} />
       </CardActions>
       <Collapse in={expanded} timeout="auto" unmountOnExit>

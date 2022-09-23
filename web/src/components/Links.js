@@ -23,7 +23,7 @@ export const Links = (props) => {
         aria-expanded={open ? 'true' : undefined}
         onClick={handleClick}
       >
-        Links
+        Linki
       </Button>
       <Menu
         id="basic-menu"
