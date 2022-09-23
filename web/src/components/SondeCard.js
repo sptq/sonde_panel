@@ -36,7 +36,9 @@ export const SondeCard = (props) => {
       </CardActions>
       <Collapse in={expanded} timeout="auto" unmountOnExit>
         <CardContent>
+          <div style={{height: 350}}>
           <SondeMap {...props} height={300}/>
+          </div>
         </CardContent>
       </Collapse>
     </Card>
