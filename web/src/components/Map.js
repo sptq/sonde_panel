@@ -8,7 +8,7 @@ import { MapMarker } from "./MapMarker";
 
 
 export const Map = (props) => {
-  const { latitude, longitude, url, zoom} = props;
+  const { latitude, longitude, url, zoom, positions} = props;
   const position = [parseFloat(latitude), parseFloat(longitude)];
 
   return (
@@ -23,7 +23,7 @@ export const Map = (props) => {
       />
 
       <ScaleControl />
-
+      <Polyline positions={positions} pathOptions={{ color: 'red' }} key={positions.length}/>
       <MapMarker {...props} />
     </MapContainer>
   );

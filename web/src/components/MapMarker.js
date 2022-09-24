@@ -9,7 +9,7 @@ export const MapMarker = (props) => {
   const title = showGOTO ? <Link to={`/sonde/${name}`}>{name}</Link> : name;
 
   return (
-    <Marker position={position}>
+    <Marker position={position} pathOptions={{ color: 'blue' }}>
       <Popup>
         <b>{title}</b><br/>
         Lat: {latitude} &nbsp; &nbsp; Lon: {longitude} <br/>
