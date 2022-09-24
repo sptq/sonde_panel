@@ -23,7 +23,7 @@ export const Map = (props) => {
       />
 
       <ScaleControl />
-      <Polyline positions={positions} pathOptions={{ color: 'red' }} key={positions.length}/>
+      {positions ? <Polyline positions={positions} pathOptions={{ color: 'red' }} key={positions.length}/> : null}
       <MapMarker {...props} />
     </MapContainer>
   );
