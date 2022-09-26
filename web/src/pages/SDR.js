@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from "react";
 import 'leaflet/dist/leaflet.css';
 import 'leaflet-defaulticon-compatibility/dist/leaflet-defaulticon-compatibility.css';
 import 'leaflet-defaulticon-compatibility';
@@ -7,31 +7,40 @@ import Paper from '@mui/material/Paper';
 import Grid from '@mui/material/Grid';
 
 export const SDR = () => {
-  return (
+
+  const [sdr, setSdr] = useState();
+  useEffect(() => {
+    fetch(`/api/station/sdr_count`, {cache: "no-store"})
+      .then((res) => res.json())
+      .then((data) => {
+        setSdr(parseInt(data));
+      });
+  })
+
+  const renderSDR = (sdr) => {
+      return (
+        <Grid item xs={12} md={12} lg={6} key={sdr}>
+          <Paper sx={{ width: '98%', margin: 'auto', overflow: 'hidden' }}>
+            <SDRChart sdr={sdr} />
+          </Paper>
+        </Grid>
+      )
+  }
+
+  const renserSDRList = (sdr) => {
+    let sdrList = [];
+    for (let i = 0; i < sdr; i++) {
+      sdrList.push(renderSDR(i+1));
+    }
+    return sdrList;
+  }
+
+  return sdr ? (
     <div>
       <h1>Status SDR</h1>
       <Grid container spacing={4}>
-        <Grid item xs={12} md={12} lg={6}>
-          <Paper sx={{ width: '98%', margin: 'auto', overflow: 'hidden' }}>
-            <SDRChart sdr="1" />
-          </Paper>
-        </Grid>
-        <Grid item xs={12} md={12} lg={6}>
-          <Paper sx={{ width: '98%', margin: 'auto', overflow: 'hidden' }}>
-            <SDRChart sdr="2" />
-          </Paper>
-        </Grid>
-        <Grid item xs={12} md={12} lg={6}>
-          <Paper sx={{ width: '98%', margin: 'auto', overflow: 'hidden' }}>
-            <SDRChart sdr="3" />
-          </Paper>
-        </Grid>
-        <Grid item xs={12} md={12} lg={6}>
-          <Paper sx={{ width: '98%', margin: 'auto', overflow: 'hidden' }}>
-            <SDRChart sdr="4" />
-          </Paper>
-        </Grid>
+        {renserSDRList(sdr)}
       </Grid>
     </div>
-  );
+  ) : null;
 };

@@ -9,6 +9,7 @@ import { SondeModule } from './sonde/sonde.module';
 import { SdrModule } from './sdr/sdr.module';
 import { CfgModule } from './cfg/cfg.module';
 import { ProcModule } from './proc/proc.module';
+import { StationModule } from './station/station.module';
 
 
 @Module({
@@ -17,7 +18,7 @@ import { ProcModule } from './proc/proc.module';
       rootPath: join(__dirname, '../web', 'build'),
     }),
     ScheduleModule.forRoot(),
-    SondeModule, SdrModule, CfgModule, ProcModule],
+    SondeModule, SdrModule, CfgModule, ProcModule, StationModule],
   controllers: [AppController],
   providers: [AppService],
 })

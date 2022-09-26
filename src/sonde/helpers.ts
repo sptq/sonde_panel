@@ -27,7 +27,9 @@ export const mapDataToJson = (data: string) =>  {
     for (let j = 0; j < splitRow.length; j++) {
       row[rows_name[j]] = splitRow[j];
     }
-    row['distance'] = calculateDistance(config.LAN, config.LON, row['latitude'], row['longitude']);
+    let lan = parseFloat(config.LAN);
+    let lon = parseFloat(config.LON);
+    row['distance'] = calculateDistance(lan, lon, row['latitude'], row['longitude']);
 
     if (row['name'] !== '') json.push(row);
   }

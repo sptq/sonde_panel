@@ -10,7 +10,6 @@ import Grid from '@mui/material/Grid';
 export const Sonde = (props) => {
   const params = useParams();
   const [data, setData] = React.useState(null);
-  const [positions, setPositions] = React.useState([]);
 
   useEffect(() => {
     let isMounted = true;
