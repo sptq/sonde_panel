@@ -42,6 +42,7 @@ export const MapMarker = (props) => {
         Alt: {altitude}m &nbsp;&nbsp; Vel: {speed}m/s <br/>
         Dist: {distance}km &nbsp;&nbsp; Dir: {dir}° <br/>
         Climb: {climb}m/s &nbsp;&nbsp; Freq: {freq}MHz <br/>
+        Time: {dayjs.unix(time).format('YYYY-MM-DD HH:mm:ss')}
       </Popup>
     </Marker>
   )
