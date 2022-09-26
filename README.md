@@ -11,50 +11,51 @@
 
 ## Before install
 
-Install node.js
+Install node.js v16
+
+```
+https://nodejs.org/en/download/package-manager/#debian-and-ubuntu-based-linux-distributions
+```
+
+then install pm2
+```
+npm install pm2 -g
+```
+
 
 ## Installation
 
 ```bash
-$ npm install
+npm install
+npm run build 
+cd web
+npm install
+npm run build
 ```
 
-## Running the app
+## Configuration
+Edit file: ecosystem.config.js
+
+```
+module.exports = {
+  apps : [{
+    script: 'dist/main.js',
+    watch: false,
+    env: {
+      "NODE_ENV": "production",
+      "LAN": "51.3678", //set your lan
+      "LON": "20.2951", //set your lon
+      "NUMBERS_OF_SDRS": 4, //set number of sdrs
+    }
+  }]
+};
+```
+
+## Start app
 
 ```bash
-# development
-$ npm run start
-
-# watch mode
-$ npm run start:dev
-
-# production mode
-$ npm run start:prod
+pm2 start ecosystem.config.js
 ```
 
-## Test
 
-```bash
-# unit tests
-$ npm run test
-
-# e2e tests
-$ npm run test:e2e
-
-# test coverage
-$ npm run test:cov
-```
-
-## Support
-
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
-
-## Stay in touch
-
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
-
-## License
-
-Nest is [MIT licensed](LICENSE).
+App is on [MIT licensed](LICENSE).
