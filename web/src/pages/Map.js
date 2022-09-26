@@ -12,7 +12,7 @@ export const Map = () => {
     let isMounted = true;
     let interval = setInterval(() => {
       if (isMounted) {
-        fetch(`/api/sonde`)
+        fetch(`/api/sonde`, {cache: "no-store"})
           .then((res) => res.json())
           .then((data) => setData(data));
       }

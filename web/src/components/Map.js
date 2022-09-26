@@ -11,6 +11,8 @@ export const Map = (props) => {
   const { latitude, longitude, url, zoom, positions} = props;
   const position = [parseFloat(latitude), parseFloat(longitude)];
 
+  //console.log('Sonde position', positions);
+
   return (
     <MapContainer
       center={position}
@@ -23,7 +25,7 @@ export const Map = (props) => {
       />
 
       <ScaleControl />
-      {positions ? <Polyline positions={positions} pathOptions={{ color: 'red' }} key={positions.length}/> : null}
+      <Polyline positions={positions} pathOptions={{ color: 'red' }} key={positions.length}/>
       <MapMarker {...props} />
     </MapContainer>
   );

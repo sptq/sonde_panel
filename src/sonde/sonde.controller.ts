@@ -7,10 +7,10 @@ export class SondeController {
 
   @Get('/')
   async getDatabase() {
-    return await this.sondeService.getDatabaseFromFile();
+    return await this.sondeService.getSondes();
   }
   @Get('/:name')
   async getDatabaseByName(@Param('name') name: string) {
-    return await this.sondeService.getDatabaseByName(name);
+    return await this.sondeService.getSonde(name);
   }
 }
