@@ -17,6 +17,15 @@ export class SondeDatabaseService {
     this.db = new JsonDB(new Config(pathToDB+"/database.json", true, true, '/'));
   }
 
+  getRandomColor() {
+    var letters = '0123456789ABCDEF';
+    var color = '#';
+    for (var i = 0; i < 6; i++) {
+      color += letters[Math.floor(Math.random() * 16)];
+    }
+    return color;
+  }
+
   async getDatabaseFromFile() {
     try {
       const data = await fs.readFile(config.DB_FILE_PATH, { encoding: 'utf8' });
@@ -33,6 +42,7 @@ export class SondeDatabaseService {
 
       const dataToDB = data.map((record) => {
         record.positions = [[record.latitude, record.longitude]];
+        record.color = this.getRandomColor();
         return record;
       });
 
@@ -70,6 +80,7 @@ export class SondeDatabaseService {
 
   async addNewRecordToDatabase(record) {
     record.positions = [[record.latitude, record.longitude]];
+    record.color = this.getRandomColor();
     return await this.db.push("/sonde[]", record);
   }
 

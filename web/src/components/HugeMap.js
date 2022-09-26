@@ -13,7 +13,7 @@ export const HugeMap = (props) => {
       return (
         <>
           <MapMarker key={index} {...sonde} showGOTO />
-          <Polyline positions={sonde.positions} pathOptions={{ color: 'red' }}/>
+          <Polyline positions={sonde.positions} pathOptions={{ color: sonde.color }}/>
         </>)
     })
   }

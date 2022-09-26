@@ -6,12 +6,12 @@ import 'leaflet-defaulticon-compatibility/dist/leaflet-defaulticon-compatibility
 import 'leaflet-defaulticon-compatibility';
 import { MapMarker } from "./MapMarker";
 
-
 export const Map = (props) => {
-  const { latitude, longitude, url, zoom, positions} = props;
+  const { latitude, longitude, url, zoom, positions, color} = props;
   const position = [parseFloat(latitude), parseFloat(longitude)];
 
-  //console.log('Sonde position', positions);
+
+  console.log('Sonde position', positions);
 
   return (
     <MapContainer
@@ -25,7 +25,7 @@ export const Map = (props) => {
       />
 
       <ScaleControl />
-      <Polyline positions={positions} pathOptions={{ color: 'red' }} key={positions.length}/>
+      <Polyline positions={positions} pathOptions={{ color: color}} key={positions.length}/>
       <MapMarker {...props} />
     </MapContainer>
   );

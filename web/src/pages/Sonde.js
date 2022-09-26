@@ -48,7 +48,7 @@ export const Sonde = (props) => {
           </Grid>
           <Grid item xs={12}>
             <Paper>
-              <SondeMap {...data} height={600} positions={positions} />
+              <SondeMap {...data} height={600} />
             </Paper>
           </Grid>
         </Grid>
