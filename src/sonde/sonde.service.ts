@@ -20,7 +20,7 @@ export class SondeService {
     try {
       await this.db.reload();
       const data = await this.db.getData("/sonde");
-      return data.reverse();
+      return data.sort((a: any, b: any) => b.time - a.time);
     } catch (error) {
       console.log(error);
     }
