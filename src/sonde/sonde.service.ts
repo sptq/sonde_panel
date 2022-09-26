@@ -19,7 +19,8 @@ export class SondeService {
   async getSondes() {
     try {
       await this.db.reload();
-      return await this.db.getData("/sonde");
+      const data = await this.db.getData("/sonde");
+      return data.reverse();
     } catch (error) {
       console.log(error);
     }
