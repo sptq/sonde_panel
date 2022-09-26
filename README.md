@@ -6,8 +6,6 @@
   <p align="center">New Sonde Panel for <a href="https://github.com/sp9skp/spdxl">sp9skp/spdxl</a> app.</p>
     <p align="center">
 </p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
 
 ## Before install
 
@@ -26,6 +24,8 @@ npm install pm2 -g
 ## Installation
 
 ```bash
+git clone https://github.com/sptq/sonde_panel
+cd sonde_panel
 npm install
 npm run build 
 cd web
@@ -57,5 +57,18 @@ module.exports = {
 pm2 start ecosystem.config.js
 ```
 
+App will be available on port 3000
 
+## Demo Desktop
+<img src="./demo_images/1.png">
+<img src="./demo_images/2.png">
+<img src="./demo_images/3.png">
+<img src="./demo_images/4.png">
+<img src="./demo_images/5.png">
+<img src="./demo_images/6.png">
+
+## Demo Mobile
+<img src="./demo_images/7.png">
+<img src="./demo_images/8.png">
+<img src="./demo_images/9.png">
 App is on [MIT licensed](LICENSE).
