@@ -5,10 +5,10 @@ import { Link } from "react-router-dom";
 import L from "leaflet";
 import dayjs from "dayjs";
 
-const greenIcon = new L.Icon({ iconUrl: '/marker-icon-green.png', })
-const blackIcon = new L.Icon({ iconUrl: '/marker-icon-black.png', })
-const goldIcon = new L.Icon({ iconUrl: '/marker-icon-gold.png', })
-const redIcon = new L.Icon({ iconUrl: '/marker-icon-red.png', })
+const greenIcon = new L.Icon({ iconUrl: '/marker-icon-green.png', iconSize: [25, 41], iconAnchor: [12, 41], popupAnchor: [1, -34]})
+const blackIcon = new L.Icon({ iconUrl: '/marker-icon-black.png', iconSize: [25, 41], iconAnchor: [12, 41], popupAnchor: [1, -34] })
+const goldIcon = new L.Icon({ iconUrl: '/marker-icon-gold.png', iconSize: [25, 41], iconAnchor: [12, 41], popupAnchor: [1, -34] })
+const redIcon = new L.Icon({ iconUrl: '/marker-icon-red.png', iconSize: [25, 41], iconAnchor: [12, 41], popupAnchor: [1, -34] })
 
 const getMarkerByDate = (unixtime) => {
   const date = dayjs.unix(unixtime);
