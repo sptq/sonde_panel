@@ -2,14 +2,40 @@ import React from 'react';
 import { Marker, Popup } from "react-leaflet";
 import { Link } from "react-router-dom";
 
+import L from "leaflet";
+import dayjs from "dayjs";
+
+const greenIcon = new L.Icon({ iconUrl: '/marker-icon-green.png', })
+const blackIcon = new L.Icon({ iconUrl: '/marker-icon-black.png', })
+const goldIcon = new L.Icon({ iconUrl: '/marker-icon-gold.png', })
+const redIcon = new L.Icon({ iconUrl: '/marker-icon-red.png', })
+
+const getMarkerByDate = (unixtime) => {
+  const date = dayjs.unix(unixtime);
+
+  if (date.isBefore(dayjs().subtract(3, 'day'))) {
+    return blackIcon;
+  }
+
+  if (date.isBefore(dayjs().subtract(2, 'day'))) {
+    return redIcon;
+  }
+
+  if (date.isBefore(dayjs().subtract(1, 'day'))) {
+    return goldIcon;
+  }
+
+  return greenIcon;
+}
 
 export const MapMarker = (props) => {
-  const { latitude, longitude, altitude, speed, name, distance, climb, dir, freq, showGOTO } = props;
+  const { latitude, longitude, altitude, speed, name, distance, climb, dir, freq, showGOTO, time } = props;
   const position = [parseFloat(latitude), parseFloat(longitude)];
   const title = showGOTO ? <Link to={`/sonde/${name}`}>{name}</Link> : name;
 
+
   return (
-    <Marker position={position} pathOptions={{ color: 'blue' }}>
+    <Marker position={position} icon={getMarkerByDate(time)}>
       <Popup>
         <b>{title}</b><br/>
         Lat: {latitude} &nbsp; &nbsp; Lon: {longitude} <br/>
