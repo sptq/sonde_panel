@@ -18,7 +18,10 @@ export class SondeService {
 
   async getSondes() {
     try {
-      return await this.db.getData("/sonde");
+      const data = await this.db.getData("/sonde");
+      console.log('Database length', data.length);
+
+      return data;
     } catch (error) {
       console.log(error);
     }
