@@ -18,6 +18,7 @@ export class SondeService {
 
   async getSondes() {
     try {
+      await this.db.reload();
       const data = await this.db.getData("/sonde");
       console.log('Database length', data.length);
 
@@ -29,6 +30,7 @@ export class SondeService {
 
   async getSonde(name: string){
     try {
+      await this.db.reload();
       const data = await this.getSondes();
       return data.find((row: any) => row.name === name);
     } catch (error) {
