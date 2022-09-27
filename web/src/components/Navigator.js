@@ -12,6 +12,7 @@ import PermMediaOutlinedIcon from '@mui/icons-material/PhotoSizeSelectActual';
 import SettingsIcon from '@mui/icons-material/Settings';
 import RunningWithErrorsIcon from '@mui/icons-material/RunningWithErrors';
 import MapIcon from '@mui/icons-material/Map';
+import MemoryIcon from '@mui/icons-material/Memory';
 import { Link as RouterLink } from "react-router-dom";
 
 const categories = [
@@ -22,6 +23,7 @@ const categories = [
       { id: 'Mapa', icon: <MapIcon />, link: '/map' },
       { id: 'SDR', icon: <PermMediaOutlinedIcon />, link: '/sdr' },
       { id: 'Procesy', icon: <RunningWithErrorsIcon />, link: '/processes' },
+      { id: 'Status stacji', icon: <MemoryIcon />, link: '/status' },
       { id: 'Konfiguracja SDR', icon: <SettingsIcon />, link: '/sdr-configuration' },
       { id: 'Konfiguracja Aplikacji', icon: <SettingsIcon />, link: '/app-configuration' },
     ],

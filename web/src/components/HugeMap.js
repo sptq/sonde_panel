@@ -22,7 +22,7 @@ export const HugeMap = (props) => {
     <MapContainer
       center={props.position}
       zoom={10}
-      scrollWheelZoom={false}
+      scrollWheelZoom={true}
       style={{ height: '100%', width: '100%' }}
     >
       <TileLayer

@@ -11,6 +11,7 @@ import { Map } from "./pages/Map";
 import { AppConfig } from "./pages/AppConfig";
 import { RemoteConnection } from "./pages/RemoteConnection";
 import { RemoteDatabase } from "./pages/RemoteDatabase";
+import { Status } from "./pages/Status";
 
 function App() {
   const router = createBrowserRouter([
@@ -29,6 +30,10 @@ function App() {
         {
           path: '/processes',
           element: <Processes />,
+        },
+        {
+          path: '/status',
+          element: <Status />,
         },
         {
           path: '/map',

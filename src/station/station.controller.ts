@@ -14,4 +14,9 @@ export class StationController {
   getPosiotion() {
     return this.stationService.getPosiotion();
   }
+
+  @Get('stats')
+  getStationMemory() {
+    return this.stationService.getStationMemory();
+  }
 }
