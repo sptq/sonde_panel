@@ -31,4 +31,16 @@ export class StationService {
       });
     });
   }
+
+  async getUptime () {
+    const cmd = 'uptime';
+
+    return await new Promise((resolve, reject) => {
+      child_process.exec(cmd, (err, stdout, stderr) => {
+        const lines = stdout.split('\n');
+        const uptime = lines[0].split(' ').filter((x) => x !== '');
+        resolve(uptime.join(' '));
+      });
+    });
+  }
 }

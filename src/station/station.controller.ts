@@ -16,7 +16,13 @@ export class StationController {
   }
 
   @Get('stats')
-  getStationMemory() {
-    return this.stationService.getStationMemory();
+  async getStationMemory() {
+    const memory = await this.stationService.getStationMemory();
+    const uptime = await this.stationService.getUptime();
+
+    return {
+      memory,
+      uptime,
+    }
   }
 }
