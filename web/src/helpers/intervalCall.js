@@ -10,16 +10,22 @@ export const useIntervalCall = (url, initValue) => {
     let isMounted = true;
     let isBusy = false;
 
+    const fetch = () => {
+      apiGet(url, token)
+        .then((data) => {
+          setData(data)
+          isBusy = false;
+        });
+    }
+
     let interval = setInterval(() => {
       if (isMounted && !isBusy) {
         isBusy = true;
-        apiGet(url, token)
-          .then((data) => {
-            setData(data)
-            isBusy = false;
-          });
+        fetch();
       }
     }, 5000);
+
+    fetch();
 
     return () => {
       isMounted = false;

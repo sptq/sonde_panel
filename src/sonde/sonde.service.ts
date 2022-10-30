@@ -1,32 +1,33 @@
 import { Injectable } from '@nestjs/common';
-import * as fs from "fs/promises";
-import { join } from "path";
+import * as fs from 'fs/promises';
+import { join } from 'path';
 import { JsonDB, Config } from 'node-json-db';
 
-import config from "../app.configuration";
-import { mapDataToJson } from "./helpers";
+import config from '../app.configuration';
+import { mapDataToJson } from './helpers';
 
 @Injectable()
 export class SondeService {
-
   private db: JsonDB;
 
   constructor() {
-    const pathToDB = join(__dirname, '../../', 'tmp')
-    this.db = new JsonDB(new Config(pathToDB+"/database.json", true, true, '/'));
+    const pathToDB = join(__dirname, '../../', 'tmp');
+    this.db = new JsonDB(
+      new Config(pathToDB + '/database.json', true, true, '/'),
+    );
   }
 
   async getSondes() {
     try {
       await this.db.reload();
-      const data = await this.db.getData("/sonde");
-      return data.sort((a: any, b: any) => b.time - a.time);
+      const data = await this.db.getData('/sonde');
+      return data.sort((a: any, b: any) => b.time - a.time).splice(0, 20);
     } catch (error) {
       console.log(error);
     }
   }
 
-  async getSonde(name: string){
+  async getSonde(name: string) {
     try {
       await this.db.reload();
       const data = await this.getSondes();
