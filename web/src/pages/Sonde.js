@@ -6,17 +6,19 @@ import Paper from '@mui/material/Paper';
 import { SondeInfo } from '../components/SondeInfo';
 import { Links } from '../components/Links';
 import Grid from '@mui/material/Grid';
+import { useSelector } from "react-redux";
+import { apiGet } from "../helpers/api";
 
 export const Sonde = (props) => {
   const params = useParams();
   const [data, setData] = React.useState(null);
+  const token = useSelector(state => state.user.token);
 
   useEffect(() => {
     let isMounted = true;
     let interval = setInterval(() => {
       if (isMounted) {
-        fetch(`/api/sonde/${params.name}`, {cache: "no-store"})
-          .then((res) => res.json())
+        apiGet(`/api/sonde/${params.name}`,token)
           .then((data) => {
             setData(data);
           });

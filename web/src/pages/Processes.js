@@ -2,16 +2,18 @@ import React, { useEffect, useState } from "react";
 import Grid from "@mui/material/Grid";
 import Paper from "@mui/material/Paper";
 import Typography from "@mui/material/Typography";
+import { useSelector } from "react-redux";
+import { apiGet } from "../helpers/api";
 
 export const Processes = () => {
   const [data, setData] = useState();
+  const token = useSelector(state => state.user.token);
 
   useEffect(() => {
     let isMounted = true;
     let interval = setInterval(() => {
       if (isMounted) {
-        fetch('/api/proc')
-          .then((res) => res.json())
+        apiGet('/api/proc', token)
           .then((data) => setData(data));
       }
     }, 1000);

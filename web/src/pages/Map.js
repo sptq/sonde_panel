@@ -1,27 +1,26 @@
 import React, { useEffect } from "react";
 import { MapControls, openStreetMap } from "../components/MapControlls";
 import { HugeMap } from "../components/HugeMap";
-
-const position = [51.3678, 20.2951];
+import { useSelector } from "react-redux";
+import { apiGet } from "../helpers/api";
 
 export const Map = () => {
   const [data, setData] = React.useState([]);
   const [url, setUrl] = React.useState(openStreetMap);
   const [position, setPosition] = React.useState();
+  const token = useSelector(state => state.user.token);
 
   useEffect(() => {
     let isMounted = true;
 
-    fetch(`/api/station/position`, {cache: "no-store"})
-      .then((res) => res.json())
+    apiGet(`/api/station/position`, token)
       .then((data) => {
         setPosition(data);
       });
 
     let interval = setInterval(() => {
       if (isMounted) {
-        fetch(`/api/sonde`, {cache: "no-store"})
-          .then((res) => res.json())
+        apiGet(`/api/sonde`, token)
           .then((data) => setData(data));
       }
     }, 1000);

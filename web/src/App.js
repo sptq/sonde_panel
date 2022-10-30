@@ -12,12 +12,20 @@ import { AppConfig } from "./pages/AppConfig";
 import { RemoteConnection } from "./pages/RemoteConnection";
 import { RemoteDatabase } from "./pages/RemoteDatabase";
 import { Status } from "./pages/Status";
+import { SignIn } from "./pages/SignIn";
+import { Provider } from "react-redux";
+import store from './store';
+import { MainPage } from "./pages/MainPage";
 
 function App() {
   const router = createBrowserRouter([
     {
+      path: '/sign-in',
+      element: <SignIn />,
+    },
+    {
       path: '/',
-      element: <Paperbase />,
+      element: <MainPage />,
       children: [
         {
           path: '/',
@@ -65,10 +73,12 @@ function App() {
 
   return (
     <div className="App">
+      <Provider store={store}>
         <RouterProvider
           router={router}
           fallbackElement={<div>Loading...</div>}
         />
+      </Provider>
     </div>
   );
 }

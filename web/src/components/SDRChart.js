@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import { SDRGraph } from "./SDRGraph";
 import { Hidden, Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from "@mui/material";
 import Paper from "@mui/material/Paper";
+import { useSelector } from "react-redux";
+import { apiGet } from "../helpers/api";
 
 export const SDRChart = (props) => {
   const { sdr } = props;
@@ -10,12 +12,14 @@ export const SDRChart = (props) => {
     sdrConfig: {}
   });
 
+  const token = useSelector(state => state.user.token);
+
+
   useEffect(() => {
     let isMounted = true;
     let interval = setInterval(() => {
       if(isMounted) {
-        fetch("/api/sdr/" + sdr)
-          .then((res) => res.json())
+        apiGet("/api/sdr/" + sdr, token)
           .then((data) => setData(data));
       }
     }, 1000);

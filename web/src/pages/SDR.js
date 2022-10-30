@@ -5,13 +5,15 @@ import 'leaflet-defaulticon-compatibility';
 import { SDRChart } from '../components/SDRChart';
 import Paper from '@mui/material/Paper';
 import Grid from '@mui/material/Grid';
+import { useSelector } from "react-redux";
+import { apiGet } from "../helpers/api";
 
 export const SDR = () => {
+  const token = useSelector(state => state.user.token);
 
   const [sdr, setSdr] = useState();
   useEffect(() => {
-    fetch(`/api/station/sdr_count`, {cache: "no-store"})
-      .then((res) => res.json())
+    apiGet(`/api/station/sdr_count`, token)
       .then((data) => {
         setSdr(parseInt(data));
       });

@@ -1,6 +1,7 @@
 const isProd = process.env.NODE_ENV === 'production';
 
 const config = {
+  JWT_SECRET: process.env.JWT_SECRET || 'secret',
   LAN: process.env.LAN ? process.env.LAN : "51.3678",
   LON: process.env.LON ? process.env.LON : "20.2951",
   DB_FILE_PATH: isProd ? '/tmp/sonde.csv' : './demo_data/sonde.csv',

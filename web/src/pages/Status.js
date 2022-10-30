@@ -1,15 +1,17 @@
 import React, { useEffect, useState } from "react";
 import Paper from "@mui/material/Paper";
+import { useSelector } from "react-redux";
+import { apiGet } from "../helpers/api";
 
 export const Status = () => {
   const [data, setData] = useState();
+  const token = useSelector(state => state.user.token);
 
   useEffect(() => {
     let isMounted = true;
     let interval = setInterval(() => {
       if (isMounted) {
-        fetch('/api/station/stats')
-          .then((res) => res.json())
+        apiGet('/api/station/stats', token)
           .then((data) => setData(data));
       }
     }, 1000);

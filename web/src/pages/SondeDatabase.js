@@ -4,17 +4,18 @@ import { SondesTable } from '../components/SondesTable';
 import Paper from '@mui/material/Paper';
 import { Hidden } from "@mui/material";
 import { SondesCards } from "../components/SondesCards";
+import { useSelector } from "react-redux";
+import { apiGet } from "../helpers/api";
 
 export const SondeDatabase = () => {
   const [data, setData] = useState([]);
+  const token = useSelector(state => state.user.token);
 
   useEffect(() => {
     let isMounted = true;
     let interval = setInterval(() => {
       if (isMounted) {
-        fetch('/api/sonde', {cache: "no-store"})
-          .then((res) => res.json())
-          .then((data) => setData(data));
+        apiGet('/api/sonde', token).then((data) => setData(data));
       }
     }, 1000);
 
