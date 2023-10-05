@@ -7,6 +7,9 @@
     <p align="center">
 </p>
 
+App is on [MIT licensed](LICENSE).
+
+
 ## Before install
 
 Install node.js v16
@@ -71,4 +74,3 @@ App will be available on port 3000
 <img src="./demo_images/7.png">
 <img src="./demo_images/8.png">
 <img src="./demo_images/9.png">
-App is on [MIT licensed](LICENSE).
